@@ -3,9 +3,15 @@ const mongoose = require('mongoose');
 const users = require('./rotas/API/users');
 const posts = require('./rotas/API/posts');
 const profile = require('./rotas/API/profile');
+const bodyParser = require('body-parser');
 
 
 const app = express();
+
+//BodyParser MW
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //DB Config
 const db = require('./config/keys').mongoURI;
